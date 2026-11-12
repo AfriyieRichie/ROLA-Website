@@ -575,41 +575,50 @@ def page_moments():
 
 
 def page_contact():
-    pin = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13.200 14-24a14 14 0 1 0-28 0c0 10.800 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>'
-    phone = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h7l3 9-4.500 3a22 22 0 0 0 10.500 10.500l3-4.500 9 3v7a4 4 0 0 1-4 4C21 38 10 27 10 10a4 4 0 0 1 4-4z"/></svg>'
-    mail = '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="M6 14l18 13 18-13"/></svg>'
+    pin = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13.200 14-24a14 14 0 1 0-28 0c0 10.800 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>'
+    phone = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h7l3 9-4.500 3a22 22 0 0 0 10.500 10.500l3-4.500 9 3v7a4 4 0 0 1-4 4C21 38 10 27 10 10a4 4 0 0 1 4-4z"/></svg>'
+    mail = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="M6 14l18 13 18-13"/></svg>'
     return f'''<main id="top">
-  <section class="touch" id="visit">
-    <img class="touch__photo" src="images/site/hero-1.jpg" alt="" />
+{photo_hero("Contact Us", "images/site/g-houses.jpg", "Pupils in their house colours gathered in the school courtyard", "center 50%")}
+  <section class="section ccards-section">
     <div class="wrap">
-      <h1>Get in touch</h1>
-      <ul class="touch__lines">
-        <li>{phone}<span>Phone: <a href="tel:{PHONE_LINK}">{PHONE_DISPLAY}</a> / <a href="tel:{PHONE2_LINK}">{PHONE2_DISPLAY}</a></span></li>
-        <li>{mail}<span>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></span></li>
-        <li>{pin}<span>Address: River of Life Academy, Accra, Ghana</span></li>
-      </ul>
-      <div class="touch__pills">
-        <a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Get directions</a>
-        <a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a>
+      <p class="eyebrow">We would be glad to hear from you</p>
+      <div class="ccards">
+        <div class="ccard reveal">{pin}<p class="eyebrow">Visit</p><h3>River of Life Academy</h3><p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p><a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Get directions</a></div>
+        <div class="ccard reveal">{phone}<p class="eyebrow">Call</p><h3>{PHONE_DISPLAY}<br/>{PHONE2_DISPLAY}</h3><p>Speak to the school office during school hours.</p><a class="ccard__pill" href="tel:{PHONE_LINK}">Call</a><a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div class="ccard reveal">{mail}<p class="eyebrow">Email</p><h3 class="ccard__small">{EMAIL}</h3><p>We aim to reply within two school days.</p><a class="ccard__pill" href="mailto:{EMAIL}">Send an email</a></div>
       </div>
-      <form class="touch__form" id="contactForm" novalidate>
-        <div class="touch__col">
-          <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" placeholder="Your name *" required /></div>
-          <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="Your email" /></div>
-          <div class="field"><label for="phone">Your phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone *" required /></div>
-        </div>
-        <div class="field field--msg"><label for="message">Your message</label><textarea id="message" name="message" placeholder="Your message *" required></textarea></div>
-        <input type="hidden" name="reason" value="General enquiry" />
-        <div class="touch__send">
-          <button type="submit" class="btn">Send message</button>
-          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-        </div>
-      </form>
     </div>
   </section>
 
-  <section class="section findus">
+  <section class="section cform-section" id="visit">
     <div class="wrap">
+      <div class="cpanel reveal">
+        <div class="cpanel__side">
+          <img src="images/site/g-uniform.jpg" alt="" loading="lazy" />
+          <p class="eyebrow eyebrow--gold">Book a visit or ask a question</p>
+          <h2>Send us a message</h2>
+          <p>Tell us a little about your child and what you would like to know, and the school office will be in touch.</p>
+          <p class="cpanel__hours">School office: Monday to Friday, 7:00am to 4:00pm</p>
+        </div>
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__row">
+            <div class="field"><label for="name">Your name *</label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+            <div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+          </div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+          <div class="form__row">
+            <div class="field"><label for="level">Class of interest</label>
+              <select id="level" name="level"><option value="">Please select</option><option>Creche / Nursery</option><option>Kindergarten</option><option>Primary (Basic 1 to 6)</option><option>Junior High School</option></select></div>
+            <div class="field"><label for="reason">I would like to</label>
+              <select id="reason" name="reason"><option>Book a visit</option><option>Ask about admission</option><option>Ask about fees</option><option>Something else</option></select></div>
+          </div>
+          <div class="field"><label for="message">Message *</label><textarea id="message" name="message" rows="3" required></textarea></div>
+          <button type="submit" class="btn">Send message</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
       <div class="mapwrap reveal">
         <div class="map">
           <iframe title="Map to River of Life Academy" src="https://maps.google.com/maps?q=5.6242063,-0.2452966&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -617,7 +626,7 @@ def page_contact():
         <div class="mapcard">
           <p class="eyebrow eyebrow--gold">Find us</p>
           <h3>River of Life Academy</h3>
-          <p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p>
+          <p>Accra, Ghana</p>
           <a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Open in Google Maps</a>
         </div>
       </div>
