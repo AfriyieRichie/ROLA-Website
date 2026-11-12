@@ -265,3 +265,32 @@ body.menu-open .menu-btn span { background: var(--navy); }
   .touch__form { grid-template-columns: 1fr; }
   .touch .field textarea { min-height: 180px; }
 }
+
+/* =========================================================
+   Contact details: one white panel rising over the photo,
+   three columns divided by fine lines; a column turns navy on hover
+   ========================================================= */
+.ccards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #fff; box-shadow: 0 40px 90px rgba(11, 27, 74, .16); }
+.ccard { position: relative; padding: clamp(34px, 3.6vw, 56px) clamp(26px, 3vw, 48px); border-left: 1px solid var(--line); background: transparent; color: var(--muted); transform: none; box-shadow: none; transition: background .45s ease, color .45s ease; }
+.ccard:first-child { border-left: 0; }
+.ccard::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; border: 0; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .55s var(--ease); }
+.ccard:hover { transform: none; box-shadow: none; background: radial-gradient(84% 81% at 38% 26%, #223a8e, #0b1b4a); color: rgba(255, 255, 255, .82); }
+.ccard:hover::before { transform: scaleX(1); }
+.ccard__ring { display: grid; place-items: center; width: 62px; height: 62px; margin-bottom: 30px; border: 1px solid var(--gold); border-radius: 50%; transition: background .45s ease; }
+.ccard__icon { width: 26px; height: 26px; margin: 0; stroke: var(--gold-dark); stroke-width: 2.2; transition: stroke .45s ease; }
+.ccard:hover .ccard__ring { background: var(--gold); }
+.ccard:hover .ccard__icon { stroke: var(--navy); }
+.ccard .eyebrow { color: var(--navy); opacity: .7; transition: color .45s ease; }
+.ccard:hover .eyebrow { color: #fff; }
+.ccard h3 { color: var(--navy); font-size: clamp(1.5rem, 2vw, 1.9rem); line-height: 1.2; transition: color .45s ease; }
+.ccard h3.ccard__small { font-size: clamp(1.1rem, 1.35vw, 1.3rem); word-break: break-word; }
+.ccard:hover h3 { color: var(--gold); }
+.ccard p:not(.eyebrow) { margin-bottom: 0; color: inherit; }
+.ccard__links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px !important; }
+.ccard__links a { padding-bottom: 3px; border-bottom: 1px solid var(--gold); font: 600 .92rem var(--sans); color: var(--navy); transition: color .45s ease; }
+.ccard:hover .ccard__links a { color: #fff; }
+@media (max-width: 900px) {
+  .ccards { grid-template-columns: 1fr; }
+  .ccard { border-left: 0; border-top: 1px solid var(--line); }
+  .ccard:first-child { border-top: 0; }
+}

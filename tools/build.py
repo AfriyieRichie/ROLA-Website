@@ -583,10 +583,10 @@ def page_contact():
   <section class="section ccards-section">
     <div class="wrap">
       <p class="eyebrow">We would be glad to hear from you</p>
-      <div class="ccards">
-        <div class="ccard reveal">{pin}<p class="eyebrow">Visit</p><h3>River of Life Academy</h3><p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p><a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Get directions</a></div>
-        <div class="ccard reveal">{phone}<p class="eyebrow">Call</p><h3>{PHONE_DISPLAY}<br/>{PHONE2_DISPLAY}</h3><p>Speak to the school office during school hours.</p><a class="ccard__pill" href="tel:{PHONE_LINK}">Call</a><a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a></div>
-        <div class="ccard reveal">{mail}<p class="eyebrow">Email</p><h3 class="ccard__small">{EMAIL}</h3><p>We aim to reply within two school days.</p><a class="ccard__pill" href="mailto:{EMAIL}">Send an email</a></div>
+      <div class="ccards reveal">
+        <div class="ccard"><span class="ccard__ring">{pin}</span><p class="eyebrow">Visit</p><h3>River of Life Academy</h3><p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p><p class="ccard__links"><a href="{MAPS}" target="_blank" rel="noopener">Get directions</a></p></div>
+        <div class="ccard"><span class="ccard__ring">{phone}</span><p class="eyebrow">Call</p><h3><a href="tel:{PHONE_LINK}">{PHONE_DISPLAY}</a><br/><a href="tel:{PHONE2_LINK}">{PHONE2_DISPLAY}</a></h3><p>Speak to the school office during school hours.</p><p class="ccard__links"><a href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">Message us on WhatsApp</a></p></div>
+        <div class="ccard"><span class="ccard__ring">{mail}</span><p class="eyebrow">Email</p><h3 class="ccard__small"><a href="mailto:{EMAIL}">{EMAIL}</a></h3><p>We aim to reply within two school days.</p><p class="ccard__links"><a href="mailto:{EMAIL}">Send an email</a></p></div>
       </div>
     </div>
   </section>
