@@ -136,6 +136,7 @@
           img.classList.add("is-swapping");
           setTimeout(function () {
             img.onload = function () { img.classList.remove("is-swapping"); };
+            img.style.objectPosition = row.getAttribute("data-pos") || "";
             img.src = src;
           }, 280);
         }

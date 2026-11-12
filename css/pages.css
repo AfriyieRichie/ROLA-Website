@@ -306,3 +306,31 @@ body.menu-open .menu-btn span { background: var(--navy); }
 .cform-section--rise .cpanel { position: relative; z-index: 3; margin-top: calc(-1 * clamp(130px, 15vw, 200px)); }
 .mapcard .ccard__pill { background: transparent; border: 1px solid rgba(255, 255, 255, .45); color: #fff; }
 .mapcard .ccard__pill:hover { background: #fff; color: var(--navy); }
+
+/* =========================================================
+   Photos fit their frames
+   ========================================================= */
+/* Text-and-photo blocks: the frame takes the shape of the photo */
+.split__media--wide img { aspect-ratio: 5 / 4; }
+.split__media--square img { aspect-ratio: 1 / 1; }
+.split__media--tall img { aspect-ratio: 4 / 5; }
+.split__media--tall { max-width: 480px; justify-self: center; width: 100%; }
+
+/* Get in touch: the photo sits beside the navy card instead of underneath it */
+.gin { display: grid; grid-template-columns: min(500px, 42%) 1fr; min-height: 0; }
+.gin > img { position: static; order: 2; width: 100%; height: clamp(380px, 38vw, 520px); }
+.gin__card { order: 1; width: auto; }
+
+/* Footer panels and menu photo */
+.fcard img { object-position: center 6%; }
+.menu__photo img { aspect-ratio: 4 / 3; object-position: center 30%; }
+
+/* Tile previews show the whole photo */
+.sheet__img { max-height: none; height: auto; object-fit: contain; background: none; }
+
+@media (max-width: 900px) {
+  .gin { grid-template-columns: 1fr; }
+  .gin > img { order: 1; height: auto; aspect-ratio: 3 / 2; }
+  .gin__card { order: 2; }
+  .split__media--tall { justify-self: start; }
+}

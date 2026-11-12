@@ -87,8 +87,8 @@ MENU = f'''<div class="menu" id="menu" aria-hidden="true">
     <nav class="menu__main" aria-label="Main menu">
       <a href="our-school.html" data-sub="about" data-img="images/site/hero-1.jpg" class="is-on"><span><small>01</small>Our School</span><i class="arrow" aria-hidden="true"></i></a>
       <a href="learning.html" data-sub="learning" data-img="images/site/primary.jpg"><span><small>02</small>Learning</span><i class="arrow" aria-hidden="true"></i></a>
-      <a href="school-life.html" data-sub="life" data-img="images/site/g-culture.jpg"><span><small>03</small>School Life</span><i class="arrow" aria-hidden="true"></i></a>
-      <a href="admissions.html" data-sub="admissions" data-img="images/site/welcome.jpg"><span><small>04</small>Admissions</span><i class="arrow" aria-hidden="true"></i></a>
+      <a href="school-life.html" data-sub="life" data-img="images/site/hero-3.jpg"><span><small>03</small>School Life</span><i class="arrow" aria-hidden="true"></i></a>
+      <a href="admissions.html" data-sub="admissions" data-img="images/site/h-class.jpg"><span><small>04</small>Admissions</span><i class="arrow" aria-hidden="true"></i></a>
       <a href="moments.html" data-sub="moments" data-img="images/site/g-ucmas-team.jpg"><span><small>05</small>Moments</span><i class="arrow" aria-hidden="true"></i></a>
       <a href="contact.html" data-sub="contact" data-img="images/site/g-houses.jpg"><span><small>06</small>Contact Us</span><i class="arrow" aria-hidden="true"></i></a>
     </nav>
@@ -227,7 +227,7 @@ def btn(text, href, light=False):
     return f'<a href="{href}" class="{cls}">{text} <i aria-hidden="true"></i></a>'
 
 
-def split(anchor, label, title, paras, img, alt, flip=False, points=None, button=""):
+def split(anchor, label, title, paras, img, alt, flip=False, points=None, button="", shape="wide", pos="center 25%"):
     body = "".join(f"<p>{p}</p>" for p in paras)
     pts = ""
     if points:
@@ -235,7 +235,7 @@ def split(anchor, label, title, paras, img, alt, flip=False, points=None, button
     cls = "split split--flip" if flip else "split"
     return f'''  <section class="section {cls}" id="{anchor}">
     <div class="wrap split__grid">
-      <figure class="split__media reveal"><img src="{img}" alt="{alt}" loading="lazy" /></figure>
+      <figure class="split__media split__media--{shape} reveal"><img src="{img}" alt="{alt}" loading="lazy" style="object-position:{pos}" /></figure>
       <div class="split__text reveal">
         <p class="eyebrow">{label}</p>
         <h2>{title}</h2>
@@ -249,9 +249,11 @@ def split(anchor, label, title, paras, img, alt, flip=False, points=None, button
 def rlist(anchor, label, title, intro, rows):
     """Expanding list with a photo that changes with the open row. rows: (title, text, img)"""
     out = []
-    for i, (t, text, img) in enumerate(rows):
+    for i, row in enumerate(rows):
+        t, text, img = row[:3]
+        pos = row[3] if len(row) > 3 else "center 25%"
         open_cls = " is-open" if i == 0 else ""
-        out.append(f'''          <div class="rlist__row{open_cls}" data-img="{img}">
+        out.append(f'''          <div class="rlist__row{open_cls}" data-img="{img}" data-pos="{pos}">
             <button type="button" class="rlist__head" aria-expanded="{'true' if i == 0 else 'false'}"><span>{i + 1:02d}</span>{t}<i aria-hidden="true"></i></button>
             <div class="rlist__body"><p>{text}</p></div>
           </div>''')
@@ -263,7 +265,7 @@ def rlist(anchor, label, title, intro, rows):
         <p>{intro}</p>
       </div>
       <div class="rlist" data-rlist>
-        <figure class="rlist__media"><img src="{rows[0][2]}" alt="" /></figure>
+        <figure class="rlist__media"><img src="{rows[0][2]}" alt="" style="object-position:{rows[0][3] if len(rows[0]) > 3 else 'center 25%'}" /></figure>
         <div class="rlist__rows">
 {chr(10).join(out)}
         </div>
@@ -273,9 +275,9 @@ def rlist(anchor, label, title, intro, rows):
 '''
 
 
-def banner(title, text, button, img="images/site/stats.jpg", alt=""):
+def banner(title, text, button, img="images/site/stats.jpg", alt="", pos="center 50%"):
     return f'''  <section class="banner">
-    <img src="{img}" alt="{alt}" loading="lazy" />
+    <img src="{img}" alt="{alt}" loading="lazy" style="object-position:{pos}" />
     <div class="banner__shade" aria-hidden="true"></div>
     <div class="banner__text reveal">
       <h2>{title}</h2>
@@ -286,11 +288,11 @@ def banner(title, text, button, img="images/site/stats.jpg", alt=""):
 '''
 
 
-def get_in_touch(img="images/site/g-uniform.jpg"):
+def get_in_touch(img="images/site/g-games.jpg", pos="center 50%"):
     return f'''  <section class="section gin-section">
     <div class="wrap">
       <div class="gin reveal">
-        <img src="{img}" alt="" loading="lazy" />
+        <img src="{img}" alt="" loading="lazy" style="object-position:{pos}" />
         <div class="gin__card">
           <h2>Get in touch</h2>
           <p>From questions about admissions and fees to booking a visit, our team is happy to help.</p>
@@ -450,10 +452,10 @@ def page_learning():
 {statement("Creche to JHS, one school", "One school for every stage, from a child&rsquo;s first days in Creche to the BECE in Junior High.",
            ["Each stage builds on the one before it, so pupils grow in confidence with teachers who already know them.",
             "We follow the Ghana Education Service curriculum throughout."])}
-{split("creche", "Ages 1 to 3", "Creche &amp; Nursery", ["A gentle, safe start where our youngest pupils play, sing, explore and make their first friends."], "images/site/nursery.jpg", "Our youngest pupils in uniform with their backpacks", points=["Caring, attentive staff", "Learning through play, songs and stories", "First words, numbers and routines"])}
-{split("kindergarten", "KG 1 and KG 2", "Kindergarten", ["Joyful, structured learning that prepares children for primary school."], "images/site/kg.jpg", "Kindergarten and lower primary pupils at assembly", flip=True, points=["Phonics and early reading", "Number work", "Creative play and social skills"])}
-{split("primary", "Basic 1 to 6", "Primary School", ["Six years of strong foundations, taught with care and high expectations."], "images/site/g-pe2.jpg", "A primary pupil smiling during morning exercise", points=["Literacy and numeracy every day", "Science and computing", "Creative arts, sport and mental arithmetic"])}
-{split("jhs", "JHS 1 to 3", "Junior High School", ["Focused teaching and mentoring for confident, well-rounded young people, leading to the Basic Education Certificate Examination."], "images/site/jhs.jpg", "Junior High students presenting their paintings", flip=True, points=["Subject teaching across the JHS curriculum", "BECE preparation", "Leadership and service"])}
+{split("creche", "Ages 1 to 3", "Creche &amp; Nursery", ["A gentle, safe start where our youngest pupils play, sing, explore and make their first friends."], "images/site/nursery.jpg", "Our youngest pupils in uniform with their backpacks", shape="tall", pos="center 30%", points=["Caring, attentive staff", "Learning through play, songs and stories", "First words, numbers and routines"])}
+{split("kindergarten", "KG 1 and KG 2", "Kindergarten", ["Joyful, structured learning that prepares children for primary school."], "images/site/kg.jpg", "Kindergarten and lower primary pupils at assembly", flip=True, shape="square", pos="center 50%", points=["Phonics and early reading", "Number work", "Creative play and social skills"])}
+{split("primary", "Basic 1 to 6", "Primary School", ["Six years of strong foundations, taught with care and high expectations."], "images/site/g-pe2.jpg", "A primary pupil smiling during morning exercise", shape="square", pos="center 40%", points=["Literacy and numeracy every day", "Science and computing", "Creative arts, sport and mental arithmetic"])}
+{split("jhs", "JHS 1 to 3", "Junior High School", ["Focused teaching and mentoring for confident, well-rounded young people, leading to the Basic Education Certificate Examination."], "images/site/jhs.jpg", "Junior High students presenting their paintings", flip=True, shape="square", pos="center 30%", points=["Subject teaching across the JHS curriculum", "BECE preparation", "Leadership and service"])}
   <section class="section facts-section" id="curriculum">
     <div class="wrap life__grid">
       <div class="life__intro reveal"><p class="eyebrow">Curriculum</p><h2>What we teach</h2><p>Our teaching follows the Ghana Education Service curriculum, with these areas running through every stage.</p></div>
@@ -468,25 +470,25 @@ def page_learning():
     </div>
   </section>
 
-{banner("See learning in action", "Visit us on a school day and sit in on the life of our classrooms.", btn("Book a visit", "contact.html#visit", light=True), "images/site/g-pe.jpg")}
+{banner("See learning in action", "Visit us on a school day and sit in on the life of our classrooms.", btn("Book a visit", "contact.html#visit", light=True), "images/site/g-houses.jpg", pos="center 45%")}
 {explore([("Admissions", "How to Apply", "admissions.html"), ("School Life", "Through the Year", "school-life.html"), ("Our School", "Our Motto", "our-school.html#motto")])}</main>
 '''
 
 
 def page_school_life():
     rows = [
-        ("Creative Arts", "Painting, drawing and craft, shown each year at our art exhibition, &ldquo;Creativity is the Point&rdquo;.", "images/site/g-art.jpg"),
+        ("Creative Arts", "Painting, drawing and craft, shown each year at our art exhibition, &ldquo;Creativity is the Point&rdquo;.", "images/site/g-art.jpg", "32% 25%"),
         ("Mental Arithmetic", "Our UCMAS team trains through the year and has brought home trophies from the national competition.", "images/site/g-ucmas-trophies.jpg"),
         ("Sport &amp; Fitness", "Morning exercise, physical education, games and inter-house competitions.", "images/site/g-pe.jpg"),
         ("Cultural Day", "A celebration of Ghanaian heritage, when pupils and teachers come to school in traditional dress.", "images/site/g-culture.jpg"),
         ("Old School Day", "Pupils and teachers step back in time for a day, with outfits and music to match.", "images/site/g-oldschool.jpg"),
         ("Service", "Awareness walks such as Pink October teach our pupils to care for the community around them.", "images/site/g-pink.jpg"),
-        ("Excursions", "Days out together, including our trip to the water park, with games, swimming and a shared lunch.", "images/site/g-trip-lunch.jpg"),
+        ("Excursions", "Days out together, including our trip to the water park, with games, swimming and a shared lunch.", "images/site/g-trip-lunch.jpg", "45% 50%"),
         ("Life Skills", "Practical days where pupils cook, serve and work together.", "images/site/g-cooking.jpg"),
         ("Graduation", "We send our graduates off in gowns and sashes, with their families and teachers beside them.", "images/site/g-graduation.jpg"),
     ]
     return f'''<main id="top">
-{photo_hero("School Life", "images/site/hero-3.jpg", "Senior students jumping for joy together", "center 30%")}
+{photo_hero("School Life", "images/site/hero-3.jpg", "Senior students jumping for joy together", "center 18%")}
 {statement("Beyond the classroom", "Learning at ROLA goes well beyond the classroom. Through the year our pupils perform, compete, create and give back.",
            ["These are the occasions our pupils look forward to and remember, and where many of them discover what they are good at."])}
 {rlist("calendar", "Through the year", "A full school calendar", "Select an occasion to read more.", rows)}
@@ -502,7 +504,7 @@ def page_school_life():
     </div>
   </section>
 
-{get_in_touch("images/site/g-grads.jpg")}
+{get_in_touch("images/site/g-grads.jpg", "center 8%")}
 {explore([("Learning", "Creche to Junior High", "learning.html"), ("Moments", "Photo Gallery", "moments.html"), ("Admissions", "How to Apply", "admissions.html")])}</main>
 '''
 
@@ -515,7 +517,7 @@ def page_admissions():
         ("Join the family", "Receive your admission letter and prepare for the first day at ROLA.", "images/site/g-uniform.jpg"),
     ]
     return f'''<main id="top">
-{photo_hero("Admissions", "images/site/welcome.jpg", "Three ROLA pupils in school uniform", "center 22%")}
+{photo_hero("Admissions", "images/site/h-class.jpg", "Senior students with their classmates", "center 25%")}
 {statement("Joining ROLA", "We welcome applications for every class from Creche to Junior High, subject to available places.",
            ["Our admissions office will guide you through the process and answer your questions. You are welcome to visit first, then apply at a time that suits your family."],
            btn("Book a visit", "contact.html#visit"))}
@@ -554,7 +556,7 @@ def page_admissions():
     </div>
   </section>
 
-{get_in_touch("images/site/g-graduation2.jpg")}
+{get_in_touch("images/site/g-team-staff.jpg", "center 40%")}
 {explore([("Learning", "Creche to Junior High", "learning.html"), ("Our School", "A Word from our Principal", "our-school.html#principal"), ("School Life", "Through the Year", "school-life.html")])}</main>
 '''
 
