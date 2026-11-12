@@ -99,6 +99,24 @@
   addEventListener("resize", fitFooter);
   addEventListener("load", fitFooter);
 
+  /* ---------- Menu: the photo follows the section being pointed at ---------- */
+  var menuPhoto = document.getElementById("menuPhoto");
+  if (menuPhoto) {
+    Array.prototype.slice.call(document.querySelectorAll(".menu__main a[data-img]")).forEach(function (a) {
+      var show = function () {
+        var src = a.getAttribute("data-img");
+        if (menuPhoto.getAttribute("src") === src) return;
+        menuPhoto.classList.add("is-swapping");
+        setTimeout(function () {
+          menuPhoto.onload = function () { menuPhoto.classList.remove("is-swapping"); };
+          menuPhoto.src = src;
+        }, 220);
+      };
+      a.addEventListener("mouseenter", show);
+      a.addEventListener("focus", show);
+    });
+  }
+
   /* ---------- Expanding lists with a photo that follows the open row ---------- */
   Array.prototype.slice.call(document.querySelectorAll("[data-rlist]")).forEach(function (list) {
     var img = list.querySelector(".rlist__media img");

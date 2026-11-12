@@ -448,7 +448,7 @@
      Header: light or dark wordmark depending on what is behind it
      ======================================================= */
   const header = $("#header");
-  const darkSections = $$(".hero, .phero:not(.phero--plain), .welcome, .motto, .banner, .moments");
+  const darkSections = $$(".hero, .phero:not(.phero--plain), .welcome, .motto, .banner, .moments, .touch");
   const mainEl = $("main");
   function updateHeaderTheme() {
     const y = 48;
