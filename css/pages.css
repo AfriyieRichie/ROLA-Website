@@ -165,8 +165,8 @@ a.stage { display: block; }
 .menu__left a { color: rgba(255, 255, 255, .86); }
 .menu__left a:hover { color: var(--gold); text-decoration: none; }
 .menu__main { padding: 40px clamp(28px, 4vw, 64px) 20px; }
-.menu__main a { padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, .14); font: 400 clamp(1.6rem, 2.3vw, 2.1rem)/1.1 var(--serif); letter-spacing: -.012em; color: #fff; transition: border-color .3s, color .3s, padding .45s var(--ease); }
-.menu__main a span { display: flex; align-items: baseline; gap: 20px; }
+.menu__main a { padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, .14); font: 400 clamp(1.2rem, 1.5vw, 1.4rem)/1.2 var(--serif); letter-spacing: -.012em; color: #fff; transition: border-color .3s, color .3s, padding .45s var(--ease); }
+.menu__main a span { display: flex; align-items: baseline; gap: 16px; }
 .menu__main a small { font: 600 .72rem var(--sans); letter-spacing: .12em; color: var(--gold); }
 .menu__main a .arrow { color: var(--gold); }
 .menu__main a:hover, .menu__main a.is-on { padding-left: 10px; color: var(--gold); border-bottom-color: var(--gold); }
