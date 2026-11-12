@@ -458,6 +458,7 @@
     });
     const overFooter = mainEl ? mainEl.getBoundingClientRect().bottom <= y : false;
     header.classList.toggle("is-light", !(onDark || overFooter));
+    header.classList.toggle("is-scrolled", window.scrollY > 40);   // phones: the header gets a solid bar once the page moves
   }
   let ticking = false;
   addEventListener("scroll", () => {

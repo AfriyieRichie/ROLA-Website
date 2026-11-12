@@ -349,3 +349,65 @@ body.menu-open .menu-btn span { background: var(--navy); }
 /* The home photo layer must fill the banner itself: it is moved on scroll,
    and a moved layer with no size of its own would shrink its photos to nothing. */
 .hero__slides { position: absolute; inset: 0; }
+
+/* =========================================================
+   Phones and small tablets
+   ========================================================= */
+@media (max-width: 900px) {
+  /* Header: a solid bar once the page has scrolled, so the school name never sits on top of text */
+  .topfade { display: none; }
+  .header { align-items: center; padding: 12px var(--gutter); transition: background .3s, box-shadow .3s; }
+  .header.is-scrolled { background: rgba(11, 27, 74, .96); box-shadow: 0 6px 20px rgba(6, 14, 44, .28); }
+  .header.is-scrolled.is-light { background: rgba(245, 242, 234, .97); box-shadow: 0 6px 20px rgba(11, 27, 74, .12); }
+  body.is-cover .header, body.menu-open .header { background: transparent; box-shadow: none; }
+
+  /* Wide photos: shorter frames, so a landscape photo is shown almost whole instead of a narrow slice */
+  .hero { height: 112vw; min-height: 400px; max-height: 100svh; }
+  .hero__title { bottom: 28px; font-size: clamp(2.1rem, 9vw, 3.2rem); }
+  .phero { height: 96vw; min-height: 340px; max-height: 80svh; }
+  .phero__title { bottom: 26px; font-size: clamp(2.3rem, 10vw, 3.4rem); }
+  .phero--plain { height: auto; max-height: none; }
+  .banner { min-height: 0; padding: 84px var(--gutter); }
+  .fcard { min-height: 0; aspect-ratio: 4 / 3; }
+
+  /* Group photo with gold frame */
+  .people__photo { margin: 0 10px 10px 0; }
+  .people__photo::before { inset: 10px -10px -10px 10px; }
+  .people__photo figcaption { margin-top: 24px; }
+  .split__media--framed { margin-left: 10px; }
+  .split__media--framed::before { inset: 10px 10px -10px -10px; }
+
+  /* Contact: details stay on one line each; the message panel shows its photo whole, with the text beneath */
+  .touch { padding-top: 130px; }
+  .touch__lines li { display: block; }
+  .touch__lines svg { display: inline-block; vertical-align: -3px; margin-right: 8px; }
+  .cpanel__side { min-height: 0; padding: 0 24px 28px; }
+  .cpanel__side::after { display: none; }
+  .cpanel__side img { position: static; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 4 / 3; margin: 0 -24px 24px; }
+  .mapwrap .map { height: 340px; }
+}
+@media (max-width: 600px) {
+  .section { padding: 64px 0; }
+  .split { padding: 44px 0; }
+  .rlist__media { max-width: none; }
+  .rlist__media img { aspect-ratio: 1 / 1; }
+  .moments--teaser .grid, .moments--page .grid { column-gap: 8px; }
+}
+
+/* Welcome wall on phones: two tidy rows; an open list hides the other buttons instead of overlapping them */
+@media (max-width: 700px) {
+  .wallbar { display: grid; grid-template-columns: 1fr auto; justify-items: stretch; width: calc(100% - 28px); gap: 8px; }
+  .wallbar .pick__btn, .wallbar__enter { width: 100%; text-align: center; }
+  .wallbar__globe { justify-self: center; }
+  .pick__list, .pick--right .pick__list { left: 0; right: auto; justify-items: start; z-index: 5; }
+  .cover.is-picking .wallbar > *:not(.is-open) { opacity: 0; pointer-events: none; }
+  .wallbar > * { transition: opacity .3s; }
+  .cover.is-wall .cover__hint { bottom: 132px; }
+}
+
+/* Phones: the group photo's gold frame is dropped so the caption sits cleanly beneath it */
+@media (max-width: 700px) {
+  .people__photo { margin: 0; }
+  .people__photo::before { display: none; }
+  .people__photo figcaption { margin-top: 14px; }
+}
