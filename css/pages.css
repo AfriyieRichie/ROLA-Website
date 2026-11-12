@@ -334,3 +334,14 @@ body.menu-open .menu-btn span { background: var(--navy); }
   .gin__card { order: 2; }
   .split__media--tall { justify-self: start; }
 }
+
+/* =========================================================
+   Our people: a wide group photo shown whole
+   ========================================================= */
+.people { background: #fff; }
+.people__head { max-width: 680px; margin-bottom: clamp(30px, 4vw, 56px); }
+.people__head p:last-child { color: var(--muted); margin: 0; }
+.people__photo { position: relative; margin: 0 18px 18px 0; }
+.people__photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--gold); }
+.people__photo img { position: relative; width: 100%; height: auto; }
+.people__photo figcaption { position: relative; margin-top: 34px; font: 600 .74rem var(--sans); letter-spacing: .17em; text-transform: uppercase; color: var(--gold-dark); }

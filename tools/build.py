@@ -318,12 +318,17 @@ def explore(cards):
 
 
 SHOTS = [
+    ("g-teachers-parents", "Teachers and parents, 20th Graduation"), ("g-craft-1", "Projects made with our parents"), ("principal-pupils", "With our Principal"),
+    ("g-culture-pair", "Cultural Day"), ("g-craft-table", "Craft work"), ("g-craft-5", "A model home"),
+    ("g-grad-cake", "20th Graduation celebration"), ("g-craft-2", "Family projects"), ("g-art-display", "Art on show"),
+    ("g-culture-kente", "Cultural Day"), ("g-care", "A helping hand"), ("g-craft-3", "Proud of her work"),
+    ("g-craft-4", "Built together"), ("g-craft-6", "Family projects"), ("g-pool", "Excursion: pool day"),
     ("g-ucmas", "UCMAS National Competition"), ("g-oldschool", "Old School Day"), ("g-art", "Creativity is the Point"),
     ("g-culture", "Cultural Day"), ("g-graduation", "Graduation Day"), ("g-trip-lunch", "Excursion: lunch together"),
     ("g-pe", "Morning exercise"), ("g-grads", "Graduating class"), ("g-pink", "Pink October"),
     ("g-class-portrait", "Proud to be ROLA"), ("g-trip-play", "Excursion: playtime"), ("g-graduation2", "Our graduates"),
     ("g-games", "Games day"), ("g-christmas", "Christmas at ROLA"), ("g-trophy", "Champions"),
-    ("g-cooking", "Life skills day"), ("g-trip-pool", "Excursion: pool day"), ("g-retro", "Old School Day"),
+    ("g-cooking", "Life skills day"), ("g-retro", "Old School Day"),
     ("g-uniform", "Friends for life"), ("h-class", "Our seniors"),
     ("g-ucmas-team", "UCMAS competition team"), ("g-graduation-principal", "Graduation with our Principal"),
     ("g-houses", "House colours"), ("g-winners", "Trophy winners"),
@@ -356,7 +361,7 @@ def page_home():
     <div class="hero__slides" id="heroSlides" data-parallax>
       <img class="is-active" src="images/site/hero-1.jpg" alt="Pupils of River of Life Academy during morning exercise in front of the school building" />
       <img src="images/site/hero-3.jpg" alt="" style="object-position:center 30%" />
-      <img src="images/site/stats.jpg" alt="" style="object-position:center 45%" />
+      <img src="images/site/g-teachers-parents.jpg" alt="" style="object-position:center 30%" />
       <img src="images/site/hero-2.jpg" alt="" style="object-position:center 55%" />
       <img src="images/site/h-class.jpg" alt="" style="object-position:center 35%" />
     </div>
@@ -383,7 +388,7 @@ def page_home():
 
   <section class="section welcome">
     <div class="wrap welcome__grid">
-      <figure class="welcome__photo reveal"><img src="images/site/principal.jpg" alt="Rev. S. Twumasi-Ankra Bonsu, Principal of River of Life Academy" loading="lazy" /></figure>
+      <figure class="welcome__photo reveal"><img src="images/site/principals.jpg" alt="Rev. S. Twumasi-Ankra Bonsu and Mrs. Tina Bonsu, Principals of River of Life Academy" loading="lazy" style="object-position:center 22%" /></figure>
       <div class="reveal">
         <p class="eyebrow eyebrow--gold">A word from our Principals</p>
         <blockquote>Every child is a gift. Our work is to help each one discover what they can do, and to use it in the service of others.</blockquote>
@@ -429,7 +434,7 @@ def page_our_school():
 
   <section class="section principal" id="principal">
     <div class="wrap split__grid">
-      <figure class="split__media split__media--framed reveal"><img src="images/site/principal.jpg" alt="Rev. S. Twumasi-Ankra Bonsu, Principal of River of Life Academy" loading="lazy" /></figure>
+      <figure class="split__media split__media--framed reveal"><img src="images/site/principals.jpg" alt="Rev. S. Twumasi-Ankra Bonsu and Mrs. Tina Bonsu, Principals of River of Life Academy" loading="lazy" style="object-position:center 22%" /></figure>
       <div class="split__text reveal">
         <p class="eyebrow">A word from our Principals</p>
         <blockquote class="quote">Every child is a gift. Our work is to help each one discover what they can do, and to use it in the service of others.</blockquote>
@@ -437,6 +442,14 @@ def page_our_school():
         <p>We warmly invite you to visit, meet our teachers and see our pupils at work.</p>
         <p class="sign">Rev. S. Twumasi-Ankra Bonsu &amp; Mrs. Tina Bonsu<span>Principals, River of Life Academy</span></p>
       </div>
+    </div>
+  </section>
+
+{split("everyday", "Every day", "At the heart of school life", ["Our Principals are part of school life every day, and our pupils know them well."], "images/site/principal-children.jpg", "Rev. S. Twumasi-Ankra Bonsu seated among pupils of the school", pos="center 50%")}
+  <section class="section people" id="people">
+    <div class="wrap">
+      <div class="people__head reveal"><p class="eyebrow">Our people</p><h2>Teachers and parents, together</h2><p>Our teachers and parents work side by side for our pupils. Here they are at our 20th graduation celebration.</p></div>
+      <figure class="people__photo reveal"><img src="images/site/g-teachers-parents.jpg" alt="Teachers and parents of River of Life Academy on stage at the 20th graduation" loading="lazy" /><figcaption>Teachers and parents at the 20th ROLA Graduation</figcaption></figure>
     </div>
   </section>
 
@@ -453,7 +466,7 @@ def page_learning():
            ["Each stage builds on the one before it, so pupils grow in confidence with teachers who already know them.",
             "We follow the Ghana Education Service curriculum throughout."])}
 {split("creche", "Ages 1 to 3", "Creche &amp; Nursery", ["A gentle, safe start where our youngest pupils play, sing, explore and make their first friends."], "images/site/nursery.jpg", "Our youngest pupils in uniform with their backpacks", shape="tall", pos="center 30%", points=["Caring, attentive staff", "Learning through play, songs and stories", "First words, numbers and routines"])}
-{split("kindergarten", "KG 1 and KG 2", "Kindergarten", ["Joyful, structured learning that prepares children for primary school."], "images/site/kg.jpg", "Kindergarten and lower primary pupils at assembly", flip=True, shape="square", pos="center 50%", points=["Phonics and early reading", "Number work", "Creative play and social skills"])}
+{split("kindergarten", "KG 1 and KG 2", "Kindergarten", ["Joyful, structured learning that prepares children for primary school."], "images/site/g-craft-table.jpg", "Young pupils showing their craft work at a table", flip=True, shape="wide", pos="center 50%", points=["Phonics and early reading", "Number work", "Creative play and social skills"])}
 {split("primary", "Basic 1 to 6", "Primary School", ["Six years of strong foundations, taught with care and high expectations."], "images/site/g-pe2.jpg", "A primary pupil smiling during morning exercise", shape="square", pos="center 40%", points=["Literacy and numeracy every day", "Science and computing", "Creative arts, sport and mental arithmetic"])}
 {split("jhs", "JHS 1 to 3", "Junior High School", ["Focused teaching and mentoring for confident, well-rounded young people, leading to the Basic Education Certificate Examination."], "images/site/jhs.jpg", "Junior High students presenting their paintings", flip=True, shape="square", pos="center 30%", points=["Subject teaching across the JHS curriculum", "BECE preparation", "Leadership and service"])}
   <section class="section facts-section" id="curriculum">
@@ -478,12 +491,13 @@ def page_learning():
 def page_school_life():
     rows = [
         ("Creative Arts", "Painting, drawing and craft, shown each year at our art exhibition, &ldquo;Creativity is the Point&rdquo;.", "images/site/g-art.jpg", "32% 25%"),
+        ("Family Projects", "Pupils build models and crafts together with their parents, then present them at school.", "images/site/g-craft-1.jpg", "center 40%"),
         ("Mental Arithmetic", "Our UCMAS team trains through the year and has brought home trophies from the national competition.", "images/site/g-ucmas-trophies.jpg"),
         ("Sport &amp; Fitness", "Morning exercise, physical education, games and inter-house competitions.", "images/site/g-pe.jpg"),
-        ("Cultural Day", "A celebration of Ghanaian heritage, when pupils and teachers come to school in traditional dress.", "images/site/g-culture.jpg"),
+        ("Cultural Day", "A celebration of Ghanaian heritage, when pupils and teachers come to school in traditional dress.", "images/site/g-culture-kente.jpg", "center 35%"),
         ("Old School Day", "Pupils and teachers step back in time for a day, with outfits and music to match.", "images/site/g-oldschool.jpg"),
         ("Service", "Awareness walks such as Pink October teach our pupils to care for the community around them.", "images/site/g-pink.jpg"),
-        ("Excursions", "Days out together, including our trip to the water park, with games, swimming and a shared lunch.", "images/site/g-trip-lunch.jpg", "45% 50%"),
+        ("Excursions", "Days out together, including our trip to the water park, with games, swimming and a shared lunch.", "images/site/g-pool.jpg", "center 50%"),
         ("Life Skills", "Practical days where pupils cook, serve and work together.", "images/site/g-cooking.jpg"),
         ("Graduation", "We send our graduates off in gowns and sashes, with their families and teachers beside them.", "images/site/g-graduation.jpg"),
     ]
@@ -511,7 +525,7 @@ def page_school_life():
 
 def page_admissions():
     steps = [
-        ("Visit or enquire", "Call, send a message or come in for a tour of the school. It is the best way to see whether ROLA is right for your family.", "images/site/stats.jpg"),
+        ("Visit or enquire", "Call, send a message or come in for a tour of the school. It is the best way to see whether ROLA is right for your family.", "images/site/g-admission-banner.jpg", "center 45%"),
         ("Complete the form", "Collect an admission form from the school office and return it with the documents listed below.", "images/site/g-class-portrait.jpg"),
         ("Meet us", "A short, friendly assessment for your child and a conversation with parents.", "images/site/kg.jpg"),
         ("Join the family", "Receive your admission letter and prepare for the first day at ROLA.", "images/site/g-uniform.jpg"),
