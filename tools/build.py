@@ -10,8 +10,11 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-PHONE_DISPLAY = "+233 20 000 0000"
-PHONE_LINK = "+233200000000"
+# Numbers as printed on the school's "Admission in Progress" flyer
+PHONE_DISPLAY = "0243 334 846"
+PHONE_LINK = "+233243334846"
+PHONE2_DISPLAY = "0540 570 330"
+PHONE2_LINK = "+233540570330"
 EMAIL = "info@riveroflifeacademy.edu.gh"
 MAPS = "https://maps.app.goo.gl/BwdagYMMDPkHuo2j6"
 INSTAGRAM = "https://www.instagram.com/rola_school/"
@@ -315,6 +318,8 @@ SHOTS = [
     ("g-games", "Games day"), ("g-christmas", "Christmas at ROLA"), ("g-trophy", "Champions"),
     ("g-cooking", "Life skills day"), ("g-trip-pool", "Excursion: pool day"), ("g-retro", "Old School Day"),
     ("g-uniform", "Friends for life"), ("h-class", "Our seniors"),
+    ("g-ucmas-team", "UCMAS competition team"), ("g-graduation-principal", "Graduation with our Principal"),
+    ("g-houses", "House colours"), ("g-winners", "Trophy winners"),
 ]
 
 
@@ -345,7 +350,7 @@ def page_home():
       <img class="is-active" src="images/site/hero-1.jpg" alt="Pupils of River of Life Academy during morning exercise in front of the school building" />
       <img src="images/site/hero-3.jpg" alt="" style="object-position:center 30%" />
       <img src="images/site/stats.jpg" alt="" style="object-position:center 45%" />
-      <img src="images/site/hero-2.jpg" alt="" style="object-position:center 22%" />
+      <img src="images/site/hero-2.jpg" alt="" style="object-position:center 55%" />
       <img src="images/site/h-class.jpg" alt="" style="object-position:center 35%" />
     </div>
     <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
@@ -466,7 +471,7 @@ def page_learning():
 def page_school_life():
     rows = [
         ("Creative Arts", "Painting, drawing and craft, shown each year at our art exhibition, &ldquo;Creativity is the Point&rdquo;.", "images/site/g-art.jpg"),
-        ("Mental Arithmetic", "Our UCMAS team trains through the year and has brought home trophies from the national competition.", "images/site/g-ucmas.jpg"),
+        ("Mental Arithmetic", "Our UCMAS team trains through the year and has brought home trophies from the national competition.", "images/site/g-ucmas-trophies.jpg"),
         ("Sport &amp; Fitness", "Morning exercise, physical education, games and inter-house competitions.", "images/site/g-pe.jpg"),
         ("Cultural Day", "A celebration of Ghanaian heritage, when pupils and teachers come to school in traditional dress.", "images/site/g-culture.jpg"),
         ("Old School Day", "Pupils and teachers step back in time for a day, with outfits and music to match.", "images/site/g-oldschool.jpg"),
@@ -570,7 +575,7 @@ def page_contact():
   <section class="section ccards-section">
     <div class="wrap ccards">
       <div class="ccard reveal"><p class="eyebrow">Visit</p><h3>River of Life Academy</h3><p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p><a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Directions</a></div>
-      <div class="ccard reveal"><p class="eyebrow">Call</p><h3>{PHONE_DISPLAY}</h3><p>Speak to the school office during school hours.</p><a class="ccard__pill" href="tel:{PHONE_LINK}">Call</a><a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="ccard reveal"><p class="eyebrow">Call</p><h3>{PHONE_DISPLAY}<br/>{PHONE2_DISPLAY}</h3><p>Speak to the school office during school hours.</p><a class="ccard__pill" href="tel:{PHONE_LINK}">Call {PHONE_DISPLAY}</a><a class="ccard__pill" href="tel:{PHONE2_LINK}">Call {PHONE2_DISPLAY}</a><a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a></div>
       <div class="ccard reveal"><p class="eyebrow">Email</p><h3 class="ccard__small">{EMAIL}</h3><p>We aim to reply within two school days.</p><a class="ccard__pill" href="mailto:{EMAIL}">Email</a></div>
     </div>
   </section>

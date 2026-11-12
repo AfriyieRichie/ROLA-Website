@@ -1,7 +1,13 @@
-# Raw source photos: kept on the computer, not part of the website
-images/originals/
-images/new/
+# Only the prepared website images are published.
+# Every other folder inside images/ holds raw source photos and stays on the computer.
+images/*
+!images/site/
+!images/globe/
+!images/favicon.png
+!images/favicon.svg
+!images/README.md
 
 # System files
 Thumbs.db
 .DS_Store
+__pycache__/
