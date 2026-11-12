@@ -359,11 +359,16 @@ def page_home():
   <section class="hero">
     <!-- Background photos change automatically. To use a video instead, save it as images/site/hero.mp4 -->
     <div class="hero__slides" id="heroSlides" data-parallax>
-      <img class="is-active" src="images/site/hero-1.jpg" alt="Pupils of River of Life Academy during morning exercise in front of the school building" />
-      <img src="images/site/hero-3.jpg" alt="" style="object-position:center 30%" />
-      <img src="images/site/g-teachers-parents.jpg" alt="" style="object-position:center 30%" />
-      <img src="images/site/hero-2.jpg" alt="" style="object-position:center 55%" />
-      <img src="images/site/h-class.jpg" alt="" style="object-position:center 35%" />
+      <!-- The nine photos from the "Background changing pictures" folder -->
+      <img class="is-active" src="images/site/principal-children.jpg" alt="Rev. S. Twumasi-Ankra Bonsu seated among pupils of River of Life Academy" style="object-position:center 0%" />
+      <img src="images/site/g-teachers-parents.jpg" alt="" style="object-position:center 14%" />
+      <img src="images/site/g-craft-table.jpg" alt="" style="object-position:center 22%" />
+      <img src="images/site/g-team-staff.jpg" alt="" style="object-position:center 38%" />
+      <img src="images/site/g-art.jpg" alt="" style="object-position:center 36%" />
+      <img src="images/site/principal-pupils.jpg" alt="" style="object-position:center 14%" />
+      <img src="images/site/g-grad-cake.jpg" alt="" style="object-position:center 40%" />
+      <img src="images/site/g-pink.jpg" alt="" style="object-position:center 18%" />
+      <img src="images/site/g-pe2.jpg" alt="" style="object-position:center 38%" />
     </div>
     <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="hero__shade" aria-hidden="true"></div>
