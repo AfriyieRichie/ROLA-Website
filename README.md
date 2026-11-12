@@ -9,7 +9,7 @@ It is a static site: plain HTML, CSS and JavaScript. Open `index.html` in a brow
 | Page | What it holds |
 |------|---------------|
 | `index.html` | Home: welcome experience (opening photo, globe, tile wall), then an overview |
-| `our-school.html` | Who we are, the motto, the Principal's welcome, the campus |
+| `our-school.html` | Who we are, the motto, the Principals' welcome, the campus |
 | `learning.html` | Creche and Nursery, Kindergarten, Primary, Junior High, curriculum |
 | `school-life.html` | The school year as an expanding list, with photos |
 | `admissions.html` | How to apply, what to bring, term dates, fees note |

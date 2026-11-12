@@ -93,7 +93,7 @@ MENU = f'''<div class="menu" id="menu" aria-hidden="true">
       <a href="contact.html" data-sub="contact" data-img="images/site/g-houses.jpg"><span><small>06</small>Contact Us</span><i class="arrow" aria-hidden="true"></i></a>
     </nav>
     <div class="menu__sub">
-      <div data-for="about" class="is-on"><a href="our-school.html">Who We Are</a><a href="our-school.html#motto">Our Motto</a><a href="our-school.html#principal">A Word from our Principal</a><a href="our-school.html#campus">Our Campus</a></div>
+      <div data-for="about" class="is-on"><a href="our-school.html">Who We Are</a><a href="our-school.html#motto">Our Motto</a><a href="our-school.html#principal">A Word from our Principals</a><a href="our-school.html#campus">Our Campus</a></div>
       <div data-for="learning"><a href="learning.html#creche">Creche &amp; Nursery</a><a href="learning.html#kindergarten">Kindergarten</a><a href="learning.html#primary">Primary School</a><a href="learning.html#jhs">Junior High School</a><a href="learning.html#curriculum">What We Teach</a></div>
       <div data-for="life"><a href="school-life.html#calendar">Through the Year</a><a href="moments.html">Photo Gallery</a></div>
       <div data-for="admissions"><a href="admissions.html#apply">How to Apply</a><a href="admissions.html#bring">What to Bring</a><a href="admissions.html#dates">Term Dates</a><a href="contact.html#visit">Book a Visit</a></div>
@@ -385,10 +385,10 @@ def page_home():
     <div class="wrap welcome__grid">
       <figure class="welcome__photo reveal"><img src="images/site/principal.jpg" alt="Rev. S. Twumasi-Ankra Bonsu, Principal of River of Life Academy" loading="lazy" /></figure>
       <div class="reveal">
-        <p class="eyebrow eyebrow--gold">A word from our Principal</p>
+        <p class="eyebrow eyebrow--gold">A word from our Principals</p>
         <blockquote>Every child is a gift. Our work is to help each one discover what they can do, and to use it in the service of others.</blockquote>
-        <p class="welcome__sign">Rev. S. Twumasi-Ankra Bonsu<span>Principal, River of Life Academy</span></p>
-        <p class="welcome__more">{btn("Read his welcome", "our-school.html#principal", light=True)}</p>
+        <p class="welcome__sign">Rev. S. Twumasi-Ankra Bonsu &amp; Mrs. Tina Bonsu<span>Principals, River of Life Academy</span></p>
+        <p class="welcome__more">{btn("Read their welcome", "our-school.html#principal", light=True)}</p>
       </div>
     </div>
   </section>
@@ -431,11 +431,11 @@ def page_our_school():
     <div class="wrap split__grid">
       <figure class="split__media split__media--framed reveal"><img src="images/site/principal.jpg" alt="Rev. S. Twumasi-Ankra Bonsu, Principal of River of Life Academy" loading="lazy" /></figure>
       <div class="split__text reveal">
-        <p class="eyebrow">A word from our Principal</p>
+        <p class="eyebrow">A word from our Principals</p>
         <blockquote class="quote">Every child is a gift. Our work is to help each one discover what they can do, and to use it in the service of others.</blockquote>
         <p>At River of Life Academy we believe a good education shapes both the mind and the heart. Our classrooms are places of hard work and high expectations, and our school is a family where pupils are encouraged, corrected with care and celebrated.</p>
         <p>We warmly invite you to visit, meet our teachers and see our pupils at work.</p>
-        <p class="sign">Rev. S. Twumasi-Ankra Bonsu<span>Principal, River of Life Academy</span></p>
+        <p class="sign">Rev. S. Twumasi-Ankra Bonsu &amp; Mrs. Tina Bonsu<span>Principals, River of Life Academy</span></p>
       </div>
     </div>
   </section>
@@ -557,7 +557,7 @@ def page_admissions():
   </section>
 
 {get_in_touch("images/site/g-team-staff.jpg", "center 40%")}
-{explore([("Learning", "Creche to Junior High", "learning.html"), ("Our School", "A Word from our Principal", "our-school.html#principal"), ("School Life", "Through the Year", "school-life.html")])}</main>
+{explore([("Learning", "Creche to Junior High", "learning.html"), ("Our School", "A Word from our Principals", "our-school.html#principal"), ("School Life", "Through the Year", "school-life.html")])}</main>
 '''
 
 
@@ -645,7 +645,7 @@ def page_contact():
 PAGES = [
     ("index.html", "River of Life Academy | Devotion and Service | Accra, Ghana",
      "River of Life Academy (ROLA) is a basic school in Accra, Ghana, educating children from Creche to Junior High School. Motto: Devotion and Service.", page_home, True),
-    ("our-school.html", "Our School | River of Life Academy", "Who we are, our motto and a word from the Principal of River of Life Academy, Accra.", page_our_school, False),
+    ("our-school.html", "Our School | River of Life Academy", "Who we are, our motto and a word from the Principals of River of Life Academy, Accra.", page_our_school, False),
     ("learning.html", "Learning | River of Life Academy", "Creche and Nursery, Kindergarten, Primary and Junior High School at River of Life Academy, Accra.", page_learning, False),
     ("school-life.html", "School Life | River of Life Academy", "Arts, mental arithmetic, sport, culture, service and excursions at River of Life Academy, Accra.", page_school_life, False),
     ("admissions.html", "Admissions | River of Life Academy", "How to apply, what to bring and term dates for River of Life Academy, Accra.", page_admissions, False),
