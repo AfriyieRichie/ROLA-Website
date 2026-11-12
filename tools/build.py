@@ -93,7 +93,7 @@ MENU = f'''<div class="menu" id="menu" aria-hidden="true">
       <a href="contact.html" data-sub="contact" data-img="images/site/g-houses.jpg"><span><small>06</small>Contact Us</span><i class="arrow" aria-hidden="true"></i></a>
     </nav>
     <div class="menu__sub">
-      <div data-for="about" class="is-on"><a href="our-school.html">Who We Are</a><a href="our-school.html#motto">Our Motto</a><a href="our-school.html#principal">A Word from our Principals</a><a href="our-school.html#campus">Our Campus</a></div>
+      <div data-for="about" class="is-on"><a href="our-school.html">Who We Are</a><a href="our-school.html#motto">Our Motto</a><a href="our-school.html#principal">A Word from our Principals</a><a href="our-school.html#people">Our People</a><a href="our-school.html#campus">Our Campus</a></div>
       <div data-for="learning"><a href="learning.html#creche">Creche &amp; Nursery</a><a href="learning.html#kindergarten">Kindergarten</a><a href="learning.html#primary">Primary School</a><a href="learning.html#jhs">Junior High School</a><a href="learning.html#curriculum">What We Teach</a></div>
       <div data-for="life"><a href="school-life.html#calendar">Through the Year</a><a href="moments.html">Photo Gallery</a></div>
       <div data-for="admissions"><a href="admissions.html#apply">How to Apply</a><a href="admissions.html#bring">What to Bring</a><a href="admissions.html#dates">Term Dates</a><a href="contact.html#visit">Book a Visit</a></div>
@@ -446,6 +446,7 @@ def page_our_school():
   </section>
 
 {split("everyday", "Every day", "At the heart of school life", ["Our Principals are part of school life every day, and our pupils know them well."], "images/site/principal-children.jpg", "Rev. S. Twumasi-Ankra Bonsu seated among pupils of the school", pos="center 50%")}
+{split("administrator", "School Administrator", "Mrs. Lilly Ofori-Asante", ["Mrs. Lilly Ofori-Asante is the Administrator of River of Life Academy. She leads the school office, and is glad to help parents with admissions, fees and day-to-day questions."], "images/site/administrator.jpg", "Mrs. Lilly Ofori-Asante, Administrator of River of Life Academy", flip=True, shape="tall", pos="center 20%", button=btn("Contact the school office", "contact.html"))}
   <section class="section people" id="people">
     <div class="wrap">
       <div class="people__head reveal"><p class="eyebrow">Our people</p><h2>Teachers and parents, together</h2><p>Our teachers and parents work side by side for our pupils. Here they are at our 20th graduation celebration.</p></div>
