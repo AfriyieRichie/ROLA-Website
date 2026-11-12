@@ -294,3 +294,15 @@ body.menu-open .menu-btn span { background: var(--navy); }
   .ccard { border-left: 0; border-top: 1px solid var(--line); }
   .ccard:first-child { border-top: 0; }
 }
+
+/* =========================================================
+   Contact page: dark "Get in touch" top, with the message panel rising out of it
+   ========================================================= */
+.touch--top { padding-bottom: clamp(200px, 23vw, 300px); }
+.touch--top .touch__pills { margin-bottom: 0; }
+.touch .ccard__pill { background: transparent; border: 1px solid rgba(255, 255, 255, .45); color: #fff; margin: 0 4px 8px; }
+.touch .ccard__pill:hover { background: #fff; color: var(--navy); }
+.cform-section--rise { padding-top: 0; }
+.cform-section--rise .cpanel { position: relative; z-index: 3; margin-top: calc(-1 * clamp(130px, 15vw, 200px)); }
+.mapcard .ccard__pill { background: transparent; border: 1px solid rgba(255, 255, 255, .45); color: #fff; }
+.mapcard .ccard__pill:hover { background: #fff; color: var(--navy); }

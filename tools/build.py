@@ -575,23 +575,27 @@ def page_moments():
 
 
 def page_contact():
-    pin = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13.200 14-24a14 14 0 1 0-28 0c0 10.800 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>'
-    phone = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h7l3 9-4.500 3a22 22 0 0 0 10.500 10.500l3-4.500 9 3v7a4 4 0 0 1-4 4C21 38 10 27 10 10a4 4 0 0 1 4-4z"/></svg>'
-    mail = '<svg class="ccard__icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="M6 14l18 13 18-13"/></svg>'
+    pin = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13.200 14-24a14 14 0 1 0-28 0c0 10.800 14 24 14 24z"/><circle cx="24" cy="20" r="5"/></svg>'
+    phone = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6h7l3 9-4.500 3a22 22 0 0 0 10.500 10.500l3-4.500 9 3v7a4 4 0 0 1-4 4C21 38 10 27 10 10a4 4 0 0 1 4-4z"/></svg>'
+    mail = '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="11" width="36" height="26" rx="2"/><path d="M6 14l18 13 18-13"/></svg>'
     return f'''<main id="top">
-{photo_hero("Contact Us", "images/site/g-houses.jpg", "Pupils in their house colours gathered in the school courtyard", "center 50%")}
-  <section class="section ccards-section">
+  <section class="touch touch--top">
+    <img class="touch__photo" src="images/site/hero-1.jpg" alt="" />
     <div class="wrap">
-      <p class="eyebrow">We would be glad to hear from you</p>
-      <div class="ccards reveal">
-        <div class="ccard"><span class="ccard__ring">{pin}</span><p class="eyebrow">Visit</p><h3>River of Life Academy</h3><p>Accra, Ghana<br/>Monday to Friday, 7:00am to 4:00pm</p><p class="ccard__links"><a href="{MAPS}" target="_blank" rel="noopener">Get directions</a></p></div>
-        <div class="ccard"><span class="ccard__ring">{phone}</span><p class="eyebrow">Call</p><h3><a href="tel:{PHONE_LINK}">{PHONE_DISPLAY}</a><br/><a href="tel:{PHONE2_LINK}">{PHONE2_DISPLAY}</a></h3><p>Speak to the school office during school hours.</p><p class="ccard__links"><a href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">Message us on WhatsApp</a></p></div>
-        <div class="ccard"><span class="ccard__ring">{mail}</span><p class="eyebrow">Email</p><h3 class="ccard__small"><a href="mailto:{EMAIL}">{EMAIL}</a></h3><p>We aim to reply within two school days.</p><p class="ccard__links"><a href="mailto:{EMAIL}">Send an email</a></p></div>
+      <h1>Get in touch</h1>
+      <ul class="touch__lines">
+        <li>{phone}<span>Phone: <a href="tel:{PHONE_LINK}">{PHONE_DISPLAY}</a> / <a href="tel:{PHONE2_LINK}">{PHONE2_DISPLAY}</a></span></li>
+        <li>{mail}<span>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></span></li>
+        <li>{pin}<span>Address: River of Life Academy, Accra, Ghana</span></li>
+      </ul>
+      <div class="touch__pills">
+        <a class="ccard__pill" href="{MAPS}" target="_blank" rel="noopener">Get directions</a>
+        <a class="ccard__pill" href="https://wa.me/{PHONE_LINK.lstrip('+')}" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <section class="section cform-section" id="visit">
+  <section class="section cform-section cform-section--rise" id="visit">
     <div class="wrap">
       <div class="cpanel reveal">
         <div class="cpanel__side">
