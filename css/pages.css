@@ -345,3 +345,7 @@ body.menu-open .menu-btn span { background: var(--navy); }
 .people__photo::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1px solid var(--gold); }
 .people__photo img { position: relative; width: 100%; height: auto; }
 .people__photo figcaption { position: relative; margin-top: 34px; font: 600 .74rem var(--sans); letter-spacing: .17em; text-transform: uppercase; color: var(--gold-dark); }
+
+/* The home photo layer must fill the banner itself: it is moved on scroll,
+   and a moved layer with no size of its own would shrink its photos to nothing. */
+.hero__slides { position: absolute; inset: 0; }
