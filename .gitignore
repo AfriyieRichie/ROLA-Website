@@ -1,0 +1,7 @@
+# Raw source photos: kept on the computer, not part of the website
+images/originals/
+images/new/
+
+# System files
+Thumbs.db
+.DS_Store

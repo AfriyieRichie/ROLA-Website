@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>River of Life Academy | Devotion and Service | Accra, Ghana</title>
+  <meta name="description" content="River of Life Academy (ROLA) is a basic school in Accra, Ghana, educating children from Creche to Junior High School. Motto: Devotion and Service." />
+  <meta name="theme-color" content="#0b1b4a" />
+  <meta property="og:title" content="River of Life Academy, Accra" />
+  <meta property="og:description" content="Devotion and Service. Creche to Junior High School." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/site/hero-1.jpg" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <noscript><style>.cover{display:none!important}body.is-cover{overflow:auto!important}.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="is-cover">
+
+<!-- ============ WELCOME SCREEN (globe of cards) ============ -->
+<div class="cover is-intro" id="cover" aria-label="Welcome">
+  <!-- Stage 1: opening photo (or images/site/hero.mp4 if present) with the motto -->
+  <div class="cover__intro" id="coverIntro">
+    <img src="images/site/hero-1.jpg" alt="" />
+    <video id="introVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
+  </div>
+  <!-- Stage 2: the globe.  Stage 3: the same tiles laid out as a wall you can drag around -->
+  <div class="globe" id="globe"><div class="globe__sphere" id="sphere"></div></div>
+  <div class="cover__shade" aria-hidden="true"></div>
+  <div class="cover__center">
+    <p class="cover__title">Devotion and Service</p>
+    <button class="cover__go" id="coverGo" type="button">Continue</button>
+  </div>
+  <p class="cover__hint" id="coverHint" aria-hidden="true">Drag to explore</p>
+
+  <div class="wallbar" id="wallbar">
+    <div class="pick" id="pickPersona">
+      <div class="pick__list" role="listbox" aria-label="I am a"></div>
+      <button type="button" class="pick__btn" aria-haspopup="listbox"><span>I am a</span> <strong>New Parent</strong></button>
+    </div>
+    <button type="button" class="wallbar__globe" id="backToGlobe" aria-label="Back to the globe"></button>
+    <div class="pick pick--right" id="pickTopic">
+      <div class="pick__list" role="listbox" aria-label="Exploring"></div>
+      <button type="button" class="pick__btn" aria-haspopup="listbox"><span>Exploring</span> <strong>Everything</strong></button>
+    </div>
+    <button type="button" class="wallbar__enter" id="enterSite">Enter website</button>
+  </div>
+</div>
+
+<!-- Preview sheet opened by clicking a tile -->
+<div class="sheet" id="sheet" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet__scroll" id="sheetScroll">
+    <article class="sheet__panel">
+      <p class="sheet__label" id="sheetLabel"></p>
+      <h2 class="sheet__title" id="sheetTitle"></h2>
+      <img class="sheet__img" id="sheetImg" alt="" />
+      <p class="sheet__text" id="sheetText"></p>
+    </article>
+  </div>
+  <button type="button" class="sheet__close" id="sheetClose" aria-label="Close">&times;</button>
+  <button type="button" class="sheet__full" id="sheetFull"><i aria-hidden="true"></i>Full page</button>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <a href="#top" class="wordmark" aria-label="River of Life Academy, home"><img class="wordmark__crest" src="images/site/crest.png" alt="" width="56" height="56" /><span>River of<br/>Life<br/>Academy</span></a>
+
+  <nav class="pillnav" aria-label="Quick links">
+    <a href="#visit">Book a Visit</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#dates">Term Dates</a>
+    <a href="#life">School Life</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ FULL-SCREEN MENU ============ -->
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__grid">
+    <div class="menu__left">
+      <img class="menu__crest" src="images/site/crest.png" alt="River of Life Academy crest" width="104" height="104" />
+      <p class="menu__label">Useful links</p>
+      <a href="#visit">Book a Visit</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#dates">Term Dates</a>
+      <a href="#life">School Life</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <nav class="menu__main" aria-label="Main menu">
+      <a href="#about" data-sub="about" class="is-on">Our School <i class="arrow" aria-hidden="true"></i></a>
+      <a href="#learning" data-sub="learning">Learning <i class="arrow" aria-hidden="true"></i></a>
+      <a href="#life" data-sub="life">School Life <i class="arrow" aria-hidden="true"></i></a>
+      <a href="#admissions" data-sub="admissions">Admissions <i class="arrow" aria-hidden="true"></i></a>
+      <a href="#moments" data-sub="moments">Moments <i class="arrow" aria-hidden="true"></i></a>
+      <a href="#contact" data-sub="contact">Contact Us <i class="arrow" aria-hidden="true"></i></a>
+    </nav>
+    <div class="menu__sub">
+      <div data-for="about" class="is-on"><a href="#about">Who We Are</a><a href="#about">Our Motto</a><a href="#welcome">A Word from our Principal</a></div>
+      <div data-for="learning"><a href="#learning">Creche &amp; Nursery</a><a href="#learning">Kindergarten</a><a href="#learning">Primary School</a><a href="#learning">Junior High School</a></div>
+      <div data-for="life"><a href="#life">Creative Arts</a><a href="#life">Mental Arithmetic</a><a href="#life">Sport &amp; Fitness</a><a href="#life">Culture</a><a href="#life">Excursions</a></div>
+      <div data-for="admissions"><a href="#admissions">How to Apply</a><a href="#admissions">What to Bring</a><a href="#dates">Term Dates</a><a href="#visit">Book a Visit</a></div>
+      <div data-for="moments"><a href="#moments">Photo Gallery</a><a href="https://www.instagram.com/rola_school/" target="_blank" rel="noopener">Instagram</a></div>
+      <div data-for="contact"><a href="#contact">Get in Touch</a><a href="https://maps.app.goo.gl/BwdagYMMDPkHuo2j6" target="_blank" rel="noopener">Get Directions</a><a href="tel:+233200000000">Call the School</a></div>
+    </div>
+    <div class="menu__foot">
+      <a href="#">Facebook</a>
+      <a href="https://www.instagram.com/rola_school/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/233200000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#" id="replayIntro">Welcome screen</a>
+      <span>Devotion and Service</span>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <!-- Background photos change automatically. To use a video instead, save it as
+         images/site/hero.mp4 and it will play here in place of the photos. -->
+    <div class="hero__slides" id="heroSlides">
+      <img class="is-active" src="images/site/hero-1.jpg" alt="Pupils of River of Life Academy during morning exercise in front of the school building" />
+      <img src="images/site/hero-3.jpg" alt="" style="object-position:center 30%" />
+      <img src="images/site/stats.jpg" alt="" style="object-position:center 45%" />
+      <img src="images/site/hero-2.jpg" alt="" style="object-position:center 22%" />
+      <img src="images/site/h-class.jpg" alt="" style="object-position:center 35%" />
+    </div>
+    <video class="hero__video" id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <span class="hero__scroll" aria-hidden="true">Scroll</span>
+    <h1 class="hero__title">River of Life Academy</h1>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="section intro" id="about">
+    <div class="wrap">
+      <span class="bar" aria-hidden="true"></span>
+      <div class="intro__grid">
+        <p class="lead reveal">Choosing a school is one of the biggest decisions a family makes. At River of Life Academy, your child is known, taught well and cared for, from the first day of Creche to the last day of Junior High.</p>
+        <div class="intro__body reveal">
+          <p>We are a basic school in Accra, guided by our motto, <em>Devotion and Service</em>. Our teachers are devoted to every learner, and our pupils learn to serve their school, their families and their community.</p>
+          <p>We follow the Ghana Education Service curriculum and bring it to life through the arts, mental arithmetic, sport, culture and a full calendar of school events.</p>
+          <p class="intro__cta">Ready to get started? Learn how to apply today.</p>
+          <a href="#admissions" class="btn">Apply <i aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING (slider) ============ -->
+  <section class="section learning" id="learning">
+    <div class="wrap learning__head">
+      <div class="reveal">
+        <p class="eyebrow">Creche to JHS, one school</p>
+        <h2>Explore learning at ROLA</h2>
+      </div>
+      <div class="controls">
+        <button type="button" class="round" id="slidePrev" aria-label="Previous"><i class="arrow arrow--left"></i></button>
+        <button type="button" class="round" id="slideNext" aria-label="Next"><i class="arrow"></i></button>
+      </div>
+    </div>
+    <div class="slider" id="slider">
+      <article class="stage">
+        <img src="images/site/nursery.jpg" alt="Our youngest pupils in uniform with their backpacks" loading="lazy" />
+        <div class="stage__text">
+          <p class="eyebrow">Ages 1 to 3</p>
+          <h3>Creche &amp; Nursery</h3>
+          <p>A gentle, safe start where little ones play, sing, explore and make their first friends.</p>
+        </div>
+      </article>
+      <article class="stage">
+        <img src="images/site/kg.jpg" alt="Kindergarten and lower primary pupils at morning assembly" loading="lazy" />
+        <div class="stage__text">
+          <p class="eyebrow">KG 1 and KG 2</p>
+          <h3>Kindergarten</h3>
+          <p>Phonics, early reading, number work and creative play that prepare children for primary school.</p>
+        </div>
+      </article>
+      <article class="stage">
+        <img src="images/site/primary.jpg" alt="Primary pupils stretching during a physical education session" loading="lazy" />
+        <div class="stage__text">
+          <p class="eyebrow">Basic 1 to 6</p>
+          <h3>Primary School</h3>
+          <p>Strong foundations in English, Mathematics, Science and ICT, alongside languages and the creative arts.</p>
+        </div>
+      </article>
+      <article class="stage">
+        <img src="images/site/jhs.jpg" alt="Junior High students presenting their paintings" loading="lazy" />
+        <div class="stage__text">
+          <p class="eyebrow">JHS 1 to 3</p>
+          <h3>Junior High School</h3>
+          <p>Focused teaching, mentoring and BECE preparation for confident, well-rounded young people.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ WELCOME MESSAGE ============ -->
+  <section class="section welcome" id="welcome">
+    <div class="wrap welcome__grid">
+      <figure class="welcome__photo reveal">
+        <img src="images/site/principal.jpg" alt="Rev. S. Twumasi-Ankra Bonsu, Principal of River of Life Academy" loading="lazy" />
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow eyebrow--gold">A word from our Principal</p>
+        <blockquote>Every child is a gift. Our work is to help each one discover what they can do, and to use it in the service of others.</blockquote>
+        <p>At River of Life Academy we believe a good education shapes both the mind and the heart. Our classrooms are places of hard work and high expectations, and our school is a family where pupils are encouraged, corrected with care and celebrated.</p>
+        <p>We warmly invite you to visit, meet our teachers and see our pupils at work.</p>
+        <p class="welcome__sign">Rev. S. Twumasi-Ankra Bonsu<span>Principal, River of Life Academy</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCHOOL LIFE (table) ============ -->
+  <section class="section life" id="life">
+    <div class="wrap life__grid">
+      <div class="life__intro reveal">
+        <span class="bar" aria-hidden="true"></span>
+        <h2>School life</h2>
+        <p>Learning at ROLA goes well beyond the classroom. Through the year our pupils perform, compete, create and give back.</p>
+        <a href="#moments" class="btn">See the moments <i aria-hidden="true"></i></a>
+      </div>
+      <div class="table reveal" role="table" aria-label="School life">
+        <p class="table__caption">Through the year:</p>
+        <div class="table__row" role="row"><h3 role="cell">Creative Arts</h3><p role="cell">Painting, drawing and craft, shown at our art exhibition, &ldquo;Creativity is the Point&rdquo;.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Mental Arithmetic</h3><p role="cell">Our UCMAS team trains through the year and has brought home trophies from the national competition.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Sport &amp; Fitness</h3><p role="cell">Morning exercise, physical education, games and inter-house competitions.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Culture</h3><p role="cell">Cultural Day in traditional dress, and Old School Day, when pupils and teachers step back in time.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Service</h3><p role="cell">Awareness walks such as Pink October, where pupils learn to care for their community.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Excursions</h3><p role="cell">Days out together, including our trip to the water park, with games, swimming and a shared lunch.</p></div>
+        <div class="table__row" role="row"><h3 role="cell">Life Skills</h3><p role="cell">Practical days where pupils cook, serve and work together.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISIT (full-bleed) ============ -->
+  <section class="banner" id="visit">
+    <img src="images/site/stats.jpg" alt="ROLA pupils gathered in the school courtyard" loading="lazy" />
+    <div class="banner__shade" aria-hidden="true"></div>
+    <div class="banner__text reveal">
+      <h2>Experience ROLA firsthand</h2>
+      <p>The best way to understand our school is to visit. See learning in action, meet our teachers and walk through our campus.</p>
+      <a href="#contact" class="btn btn--light">Book a visit today <i aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <!-- ============ ADMISSIONS ============ -->
+  <section class="section admissions" id="admissions">
+    <div class="wrap admissions__grid">
+      <div class="reveal">
+        <span class="bar" aria-hidden="true"></span>
+        <h2>Admissions</h2>
+        <p class="lead lead--sm">We welcome applications for every class from Creche to JHS, subject to available places.</p>
+        <p>Our admissions office will guide you through the process and answer your questions. You are welcome to visit first, then apply at a time that suits your family.</p>
+        <h3 class="sub">What to bring</h3>
+        <ul class="dots">
+          <li>A copy of your child's birth certificate</li>
+          <li>Two passport-size photographs</li>
+          <li>The last school report, if transferring</li>
+          <li>Your child's health or weighing card</li>
+          <li>A copy of a parent's Ghana Card</li>
+        </ul>
+      </div>
+      <ol class="steps reveal">
+        <li><span>01</span><div><h3>Visit or enquire</h3><p>Call, send a message or come in for a tour of the school.</p></div></li>
+        <li><span>02</span><div><h3>Complete the form</h3><p>Collect an admission form from the school office and return it with the documents listed.</p></div></li>
+        <li><span>03</span><div><h3>Meet us</h3><p>A short, friendly assessment for your child and a conversation with parents.</p></div></li>
+        <li><span>04</span><div><h3>Join the family</h3><p>Receive your admission letter and prepare for the first day at ROLA.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ MOMENTS (gallery) ============ -->
+  <section class="section moments" id="moments">
+    <div class="wrap">
+      <div class="moments__head reveal">
+        <div>
+          <p class="eyebrow eyebrow--gold">Moments</p>
+          <h2>Life at River of Life</h2>
+        </div>
+        <a href="https://www.instagram.com/rola_school/" target="_blank" rel="noopener" class="btn btn--light">Follow @rola_school <i aria-hidden="true"></i></a>
+      </div>
+      <div class="grid" id="gallery">
+        <button type="button" class="shot"><img src="images/site/g-ucmas.jpg" alt="ROLA pupils holding trophies from the UCMAS national competition" loading="lazy" /><span>UCMAS National Competition</span></button>
+        <button type="button" class="shot"><img src="images/site/g-oldschool.jpg" alt="Pupils dressed in retro outfits for Old School Day" loading="lazy" /><span>Old School Day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-art.jpg" alt="Students holding their paintings at the art exhibition" loading="lazy" /><span>Creativity is the Point</span></button>
+        <button type="button" class="shot"><img src="images/site/g-culture.jpg" alt="Pupils in colourful traditional dress on Cultural Day" loading="lazy" /><span>Cultural Day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-graduation.jpg" alt="Graduates in purple gowns holding their certificates" loading="lazy" /><span>Graduation Day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-trip-lunch.jpg" alt="Pupils sharing lunch together on a school excursion" loading="lazy" /><span>Excursion: lunch together</span></button>
+        <button type="button" class="shot"><img src="images/site/g-pe.jpg" alt="Pupils stretching during morning exercise" loading="lazy" /><span>Morning exercise</span></button>
+        <button type="button" class="shot"><img src="images/site/g-grads.jpg" alt="The graduating class celebrating together" loading="lazy" /><span>Graduating class</span></button>
+        <button type="button" class="shot"><img src="images/site/g-pink.jpg" alt="Young pupils wearing pink ribbons for Pink October" loading="lazy" /><span>Pink October</span></button>
+        <button type="button" class="shot"><img src="images/site/g-class-portrait.jpg" alt="A ROLA pupil in school uniform" loading="lazy" /><span>Proud to be ROLA</span></button>
+        <button type="button" class="shot"><img src="images/site/g-trip-play.jpg" alt="Pupils on the playground during a school excursion" loading="lazy" /><span>Excursion: playtime</span></button>
+        <button type="button" class="shot"><img src="images/site/g-graduation2.jpg" alt="Three graduates in gowns and sashes" loading="lazy" /><span>Our graduates</span></button>
+        <button type="button" class="shot"><img src="images/site/g-games.jpg" alt="Pupils playing outdoor games in sports kit" loading="lazy" /><span>Games day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-christmas.jpg" alt="A pupil in festive dress beside the Christmas tree" loading="lazy" /><span>Christmas at ROLA</span></button>
+        <button type="button" class="shot"><img src="images/site/g-trophy.jpg" alt="Students lifting a trophy together" loading="lazy" /><span>Champions</span></button>
+        <button type="button" class="shot"><img src="images/site/g-cooking.jpg" alt="Pupils in aprons on a practical cooking day" loading="lazy" /><span>Life skills day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-trip-pool.jpg" alt="Pupils and a teacher in the pool on a school excursion" loading="lazy" /><span>Excursion: pool day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-retro.jpg" alt="Two pupils in retro outfits with a vintage radio" loading="lazy" /><span>Old School Day</span></button>
+        <button type="button" class="shot"><img src="images/site/g-uniform.jpg" alt="Students in school uniform smiling together" loading="lazy" /><span>Friends for life</span></button>
+        <button type="button" class="shot"><img src="images/site/h-class.jpg" alt="Senior students with their classmates" loading="lazy" /><span>Our seniors</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TERM DATES ============ -->
+  <!-- Placeholder dates: replace with the school's real calendar -->
+  <section class="section dates" id="dates">
+    <div class="wrap dates__grid">
+      <div class="reveal">
+        <span class="bar" aria-hidden="true"></span>
+        <h2>Term dates</h2>
+        <p>Key dates for the 2026/2027 academic year. Parents will be notified of any changes.</p>
+      </div>
+      <div class="table table--dates reveal">
+        <div class="table__row"><p class="table__date">5 Dec</p><h3>Christmas Carols &amp; Speech Day</h3><p>9:00am, school grounds</p></div>
+        <div class="table__row"><p class="table__date">11 Dec</p><h3>First term ends</h3><p>School closes at noon</p></div>
+        <div class="table__row"><p class="table__date">12 Jan</p><h3>Second term begins</h3><p>All pupils resume</p></div>
+        <div class="table__row"><p class="table__date">6 Mar</p><h3>Independence Day &amp; Cultural Day</h3><p>Traditional dress</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact__grid">
+      <div class="reveal">
+        <span class="bar" aria-hidden="true"></span>
+        <h2>Get in touch</h2>
+        <p class="lead lead--sm">From questions about admissions and fees to booking a visit, our team is happy to help.</p>
+        <dl class="details">
+          <div><dt>Visit</dt><dd>River of Life Academy<br/>Accra, Ghana<br/><a class="directions" href="https://maps.app.goo.gl/BwdagYMMDPkHuo2j6" target="_blank" rel="noopener">Get directions</a></dd></div>
+          <div><dt>Call</dt><dd><a href="tel:+233200000000">+233 20 000 0000</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:info@riveroflifeacademy.edu.gh">info@riveroflifeacademy.edu.gh</a></dd></div>
+          <div><dt>Hours</dt><dd>Monday to Friday<br/>7:00am to 4:00pm</dd></div>
+        </dl>
+      </div>
+
+      <form class="form reveal" id="contactForm" novalidate>
+        <div class="form__row">
+          <div class="field"><label for="name">Your name *</label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required /></div>
+        </div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+        <div class="form__row">
+          <div class="field">
+            <label for="level">Class of interest</label>
+            <select id="level" name="level">
+              <option value="">Please select</option>
+              <option>Creche / Nursery</option>
+              <option>Kindergarten</option>
+              <option>Primary (Basic 1 to 6)</option>
+              <option>Junior High School</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="reason">I would like to</label>
+            <select id="reason" name="reason">
+              <option>Book a visit</option>
+              <option>Ask about admission</option>
+              <option>Ask about fees</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="message">Message *</label><textarea id="message" name="message" rows="3" required></textarea></div>
+        <button type="submit" class="btn">Send message <i aria-hidden="true"></i></button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="wrap">
+      <div class="map reveal">
+        <!-- Pinned to the school's Google Maps listing (5.6242063, -0.2452966) -->
+        <iframe title="Map to River of Life Academy" src="https://maps.google.com/maps?q=5.6242063,-0.2452966&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KEEP EXPLORING ============ -->
+  <section class="section explore">
+    <div class="wrap">
+      <h2 class="reveal">Keep exploring</h2>
+      <div class="explore__grid">
+        <a href="#learning" class="card reveal"><span class="card__label">Learning</span><span class="card__title">Creche to Junior High</span><i class="arrow" aria-hidden="true"></i></a>
+        <a href="#life" class="card reveal"><span class="card__label">School Life</span><span class="card__title">Arts, Sport &amp; Culture</span><i class="arrow" aria-hidden="true"></i></a>
+        <a href="#dates" class="card reveal"><span class="card__label">Admissions</span><span class="card__title">Term Dates</span><i class="arrow" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__cards">
+    <a href="#admissions" class="fcard">
+      <img src="images/site/g-art2.jpg" alt="" loading="lazy" />
+      <div><h2>Begin your journey</h2><p>Explore our admissions process and take the next step with confidence.</p><span class="btn btn--light">Admissions <i aria-hidden="true"></i></span></div>
+    </a>
+    <a href="#contact" class="fcard">
+      <img src="images/site/g-culture2.jpg" alt="" loading="lazy" />
+      <div><h2>Book a visit</h2><p>Walk through our classrooms, meet our teachers and discover what makes ROLA special.</p><span class="btn btn--light">Visits <i aria-hidden="true"></i></span></div>
+    </a>
+  </div>
+  <div class="wrap footer__bottom">
+    <p class="wordmark wordmark--footer"><img class="wordmark__crest" src="images/site/crest.png" alt="" width="56" height="56" /><span>River of<br/>Life<br/>Academy</span></p>
+    <p class="footer__motto">Devotion and Service</p>
+    <nav class="footer__links" aria-label="Social">
+      <a href="#">Facebook</a>
+      <a href="https://www.instagram.com/rola_school/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/233200000000" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <p class="footer__copy">All rights reserved. © <span id="year">2026</span> River of Life Academy, Accra</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" type="button" aria-label="Close">Close</button>
+  <img alt="" />
+  <p></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
